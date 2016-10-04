@@ -1,0 +1,11 @@
+{
+  "name": "humgat",
+  "version": "1.0.0",
+  "description": "Wrapper around phantomjs functions",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "",
+  "license": "MIT"
+}
