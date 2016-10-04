@@ -1,0 +1,5 @@
+# .gitignore
+
+sandbox/
+tmp/
+node_modules/
