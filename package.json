@@ -1,11 +1,14 @@
 {
   "name": "humgat",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Wrapper around phantomjs functions",
   "main": "lib/index.js",
-  "scripts": {
-    "test": "npm test"
+  "bin": {
+     "humgatjs": "./lib/index.js"
   },
-  "author": "",
+  "scripts": {
+    "test": "echo 'Nothing to test yet' && exit 1"
+  },
+  "author": "Tangerine Cat <kaineer@gmail.com>",
   "license": "MIT"
 }
