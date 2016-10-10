@@ -3,10 +3,10 @@
 'use strict';
 
 var expect = require('chai').expect;
-var mixinAsserts = require('../../../lib/humgat/wrappers/asserts');
+var Asserts = require('../../../lib/humgat/wrappers/asserts');
 
 describe('Asserts', function() {
-  var obj, results;
+  var obj, results, asserts;
 
   beforeEach(function() {
     results = {
@@ -23,13 +23,13 @@ describe('Asserts', function() {
       results: results
     };
 
-    mixinAsserts(obj);
+    asserts = new Asserts(obj);
   });
 
   describe('#assert', function() {
     beforeEach(function() {
-      obj.assert(true, 'All is good');
-      obj.assert(false, 'Oh, my ears!', 'I forgot my clock');
+      asserts.assert(true, 'All is good');
+      asserts.assert(false, 'Oh, my ears!', 'I forgot my clock');
     });
 
     it('should call addSuccess when condition is met', function() {
@@ -44,8 +44,8 @@ describe('Asserts', function() {
 
   describe('#assertEqual', function() {
     beforeEach(function() {
-      obj.assertEqual('foo', 'bar', 'Unbelievable');
-      obj.assertEqual('baz', 'baz', 'Equality');
+      asserts.assertEqual('foo', 'bar', 'Unbelievable');
+      asserts.assertEqual('baz', 'baz', 'Equality');
     });
 
     it('should call addSuccess when expected === actual', function() {
@@ -55,6 +55,16 @@ describe('Asserts', function() {
     it('should call addFailure when expected !== actual', function() {
       expect(results.failure).to.eq('Unbelievable');
       expect(results.reason).to.eq('"foo" === "bar"');
+    });
+  });
+
+  describe('delegation', function() {
+    beforeEach(function() {
+      obj.assert(true, 'Delegation works');
+    });
+
+    it('should assign to obj its assert/assertEqual methods', function() {
+      expect(results.success).to.eq('Delegation works');
     });
   });
 });

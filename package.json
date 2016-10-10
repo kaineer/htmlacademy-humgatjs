@@ -4,7 +4,7 @@
   "description": "Wrapper around phantomjs functions",
   "main": "lib/index.js",
   "bin": {
-    "humgatjs": "./lib/index.js"
+    "humgatjs": "./bin/humgatjs"
   },
   "scripts": {
     "test": "eslint lib test && mocha"
@@ -18,5 +18,8 @@
     "eslint-plugin-standard": "2.0.1",
     "expect": "1.20.2",
     "mocha": "3.1.0"
+  },
+  "dependencies": {
+    "commander": "2.9.0"
   }
 }
