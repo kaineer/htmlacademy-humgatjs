@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var runHumgat = require('../lib/run-humgat');
+
+runHumgat(process.argv);
